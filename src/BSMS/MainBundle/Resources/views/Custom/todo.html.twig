@@ -1,0 +1,22 @@
+{# src/BSMS/MainBundle/Resources/views/Custom/new.html.twig #}
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+   {{ parent() }}
+   <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bsmsmain/css/bootstrap.min.css') }}" />
+   <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bsmsmain/css/main.css') }}" />
+{% endblock %}
+{% block body %}
+	ToDo:
+	Change targetpass and targetfail values from localhost:8000
+	Change location for headers in LoginController
+	Validation
+	scripts for updating status bar
+	Change attribute in Admins table when advisor submits answers to questions
+	Add term option in Application
+	Way to add comments from advisors to individual student 
+	Allow administrators to view advisor comments for each student
+	Meet with Diane/Jodie
+	Ask about database interface
+	Ask Diane about needing address fields for student
+	Contact Sopko/KMP
+{% endblock %}

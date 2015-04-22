@@ -1,0 +1,43 @@
+{# src/BSMS/MainBundle/Resources/views/Custom/new.html.twig #}
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+   {{ parent() }}
+   <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bsmsmain/css/bootstrap.min.css') }}" />
+   <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bsmsmain/css/main.css') }}" />
+{% endblock %}
+{% block body %}
+    	<p>Hello, Administrator!</p>
+    		<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Application Information for {{ applicant['fname'] }} {{ applicant['lname'] }}</div>
+			  <!-- Table -->
+			  <table class="table table-hover">
+			  	<thead>
+			      <tr>
+			      	<th>PID</th>
+			        <th>Email</th>
+			        <th>Received</th>
+			        <th>Advisor1</th>
+			        <th>Advisor2</th>
+			        <th>Term</th>
+			        <th>Status</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+					<tr>
+				       <td>{{ applicant['pid'] }}</td>
+				       <td>{{ applicant['email'] }}</td>
+				       <td>{{ applicant['received'] }}</td>					      
+				       <td>{{ applicant['advisor1'] }}</td>
+					   <td>{{ applicant['advisor2'] }}</td>
+				       <td>{{ applicant['term'] }}</td>
+				       <td>{{ applicant['status'] }}</td>
+				    </tr>
+			    </tbody>
+			  </table>
+		</div>
+		<button href="" type="button" class="btn btn-default">View Transcript</button>
+		<button href="" type="button" class="btn btn-default">View Statement of Purpose</button>
+		<button href="" type="button" class="btn btn-default">View Resume</button>
+		<a href="">Return to all applications</a>
+{% endblock %}

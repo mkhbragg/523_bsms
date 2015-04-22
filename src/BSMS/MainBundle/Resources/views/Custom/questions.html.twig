@@ -1,0 +1,22 @@
+{# src/BSMS/MainBundle/Resources/views/Custom/new.html.twig #}
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+   {{ parent() }}
+   <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bsmsmain/css/bootstrap.min.css') }}" />
+   <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bsmsmain/css/main.css') }}" />
+{% endblock %}
+{% block body %}
+    	<p>Hello, Advisor!</p>
+    	<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Please answer the following questions concerning</div>
+		</div>
+		Is this student capable of doing grad level work
+		Would you be willing to the advisor for student writing paper?
+		Willing to have student as TA? If yes which course?
+		Other comments
+		<button href="" type="button" class="btn btn-default">View Transcript</button>
+		<button href="" type="button" class="btn btn-default">View Statement of Purpose</button>
+		<button href="" type="button" class="btn btn-default">View Resume</button>
+		<a href="">Return to all applications</a>
+{% endblock %}

@@ -1,0 +1,47 @@
+bsms_main_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: BSMSMainBundle:Default:index }
+
+bsms_test2:
+    path:	/test2
+    defaults: { _controller: BSMSMainBundle:Default:test2 }
+
+bsms_task:
+    path:	/task
+    defaults: { _controller: BSMSMainBundle:Form:new }
+
+bsms_applicant:
+    path:	/applicant/{onyen}
+    defaults: { _controller: BSMSMainBundle:Application:new }
+
+bsms_application_success:
+    path:	/application/success
+    defaults: { _controller: BSMSMainBundle:Application:applicationsuccess }
+
+bsms_applicant_profile_redirect:
+    path:	applicant/profile/{onyen}
+    defaults: { _controller: BSMSMainBundle:Application:profileredirect }
+
+bsms_login:
+    path:   /login
+    defaults: { _controller: BSMSMainBundle:Login:login }
+
+bsms_todo:
+    path:   /todo
+    defaults: { _controller: BSMSMainBundle:Default:todo }
+
+bsms_portal:
+    path:   /portal
+    defaults: { _controller: BSMSMainBundle:Login:portal }
+
+bsms_create:
+    path:   /create
+    defaults: { _controller: BSMSMainBundle:Application:create }
+
+bsms_admin_individual:
+    path:   /adminview/{pid}
+    defaults: { _controller: BSMSMainBundle:Administrator:show }
+
+bsms_adv_questions:
+    path:   /adv/questions
+    defaults: { _controller: BSMSMainBundle:Administrator:renderquestions }

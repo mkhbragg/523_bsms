@@ -1,0 +1,13 @@
+{# src/BSMS/MainBundle/Resources/views/Custom/new.html.twig #}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+   {{ parent() }}
+   <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bsmsmain/css/bootstrap.min.css') }}" />
+   <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bsmsmain/css/main.css') }}" />
+{% endblock %}
+{% block body %}
+   {{ form_start(form) }}
+		{{ form_widget(form) }}
+	{{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,21 @@
+{# src/BSMS/MainBundle/Resources/views/Custom/new.html.twig #}
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+   {{ parent() }}
+   <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bsmsmain/css/bootstrap.min.css') }}" />
+   <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bsmsmain/css/main.css') }}" />
+{% endblock %}
+{% block body %}
+	Thank you, {{onyen}}, for your application!
+	<div class="progress">
+  <div id="prog1" class="progress-bar progress-bar-success" style="width: 33%">
+    <span>Application Submitted</span>
+  </div>
+  <div id="prog2" class="progress-bar progress-bar-warning" style="width: 33%">
+    <span>Advisor Responses Recorded</span>
+  </div>
+  <div id="prog3" class="progress-bar progress-bar-default" style="width: 34%">
+    <span>Admissions Decision Made</span>
+  </div>
+</div>
+{% endblock %}

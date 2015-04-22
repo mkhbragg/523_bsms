@@ -1,0 +1,180 @@
+{# src/BSMS/MainBundle/Resources/views/Custom/new.html.twig #}
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+   {{ parent() }}
+   <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bsmsmain/css/bootstrap.min.css') }}" />
+   <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bsmsmain/css/main.css') }}" />
+{% endblock %}
+{% block javascripts %}
+	<script src="{{ asset('bundles/bsmsmain/js/jquery-1.11.2.min.js') }}"></script>
+	<script src="{{ asset('bundles/bsmsmain/js/bootstrap.min.js') }}"></script>
+{% endblock %}
+{% block body %}
+	<h3>Welcome to the Computer Science BS/MS Application</h3>
+	<p><b>You are logged in as </b>{{onyen}}
+	{% if isAdvisor %}
+		{% set i = 0 %}
+		<p>Hello, Advisor!
+			Your advisees are:</p>
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Your Advisees</div>
+			  <!-- Table -->
+			  <table class="table table-hover">
+			  	<thead>
+			      <tr>
+			      	<th>PID</th>
+			        <th>Firstname</th>
+			        <th>Lastname</th>
+			        <th>Email</th>
+			        <th>Received</th>
+			        <th>Advisor1</th>
+			        <th>Advisor2</th>
+			        <th>Term</th>
+			        <th>Status</th>
+			        <th></th>
+			        <th></th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			    	{% for advisee in advisees %}
+			    		{% set i = i+1 %}
+						<tr>
+					       <td>{{ advisee['pid'] }}</td>
+					       <td>{{ advisee['fname'] }}</td>
+					       <td>{{ advisee['lname'] }}</td>
+					       <td>{{ advisee['email'] }}</td>
+					       <td>{{ advisee['received'] }}</td>
+					       <td>{{ advisee['advisor1'] }}</td>
+					       <td>{{ advisee['advisor2'] }}</td>
+					       <td>{{ advisee['term'] }}</td>
+					       <td>{{ advisee['status'] }}</td>
+					       <td>
+					       	<a type="button" class="btn btn-default" data-toggle="collapse" href="#view{{i}}" aria-expanded="false" aria-controls="view{{i}}">View Attachments
+					       	</a>
+					       </td>
+					       <td>
+					       	<a type="button" class="btn btn-default" data-toggle="collapse" href="#view{{i}}b" aria-expanded="false" aria-controls="view{{i}}b">
+					       		Answer Questions
+					       	</a>
+					       </td>
+					     </tr>
+					      <tr>
+				            <td colspan="11" class="hiddenRow">
+				            	<div class="collapse" id="view{{i}}">
+				            		<button href="" type="button" class="btn btn-default">View Transcript</button>
+									<button href="" type="button" class="btn btn-default">View Statement of Purpose</button>
+									<button href="" type="button" class="btn btn-default">View Resume</button>
+				            	</div> 
+				            </td>
+				        </tr>
+				        <tr>
+				        	<td colspan="11" class="hiddenRow">
+				        		<div class="collapse" id="view{{i}}b">
+				        			Please use the provided text area to answer the following questions
+				        			<ul class="list-group-sm">
+				        				<li class="list-group-item">
+				        					Is this student capable of doing graduate level work?
+				        				</li>
+				        				<li class="list-group-item">
+											Would you be willing to be the thesis advisor for this student?
+				        				</li>
+				        				<li class="list-group-item">
+											Would you be willing to have this student as a TA? If yes which course?
+				        				</li>
+				        				<li class="list-group-item">
+											Other comments
+				        				</li>
+				        			</ul>
+				        			{% set comments %}
+										<input id="comments" placeholder="Provide feedback here">
+										</input>
+									{% endset %}
+									<button href="adv/questions" id='submit_comments' type="button" class="btn btn-default">Submit Feedback</button>
+				        		</div>
+				        	</td>
+				        </tr>
+					{% endfor %}
+			    </tbody>
+			  </table>
+		</div>
+	{% elseif isAdmin %}
+		{% set i = 0 %}
+    	<p>Hello, Administrator!</p>
+    		<div id="displayPanel"class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Applications</div>
+
+			  <!-- Table -->
+			  <table class="table table-hover">
+			  	<thead>
+			      <tr>
+			      	<th>PID</th>
+			        <th>Firstname</th>
+			        <th>Lastname</th>
+			        <th>Email</th>
+			        <th>Received</th>
+			        <th>Advisor1</th>
+			        <th>Advisor2</th>
+			        <th>Term</th>
+			        <th>Status</th>
+			        <th></th>
+			        <th></th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			    	{% for applicant in applicants %}
+			    		{% set i = i+1 %}
+						 <tr>
+					       <td>{{ applicant['pid'] }}</td>
+					       <td>{{ applicant['fname'] }}</td>
+					       <td>{{ applicant['lname'] }}</td>
+					       <td>{{ applicant['email'] }}</td>
+					       <td>{{ applicant['received'] }}</td>
+					       <td>{{ applicant['advisor1'] }}</td>
+					       <td>{{ applicant['advisor2'] }}</td>
+					       <td>{{ applicant['term'] }}</td>
+					       <td>{{ applicant['status'] }}</td>
+					       <td>
+					       	<a type="button" class="btn btn-default" data-toggle="collapse" href="#view{{i}}" aria-expanded="false" aria-controls="view{{i}}">View Attachments
+					       	</a>
+					       </td>
+					       <td>
+					       	<a type="button" class="btn btn-default" data-toggle="collapse" href="#view{{i}}b" aria-expanded="false" aria-controls="view{{i}}b">Make a Decision
+					       	</a>
+					       </td>
+					     </tr>
+					     <tr>
+				            <td colspan="11" class="hiddenRow">
+				            	<div class="collapse" id="view{{i}}">
+				            		<button href="" type="button" class="btn btn-default">View Transcript</button>
+									<button href="" type="button" class="btn btn-default">View Statement of Purpose</button>
+									<button href="" type="button" class="btn btn-default">View Resume</button>
+				            	</div> 
+				            </td>
+				        </tr>
+				        <tr>
+				            <td colspan="11" class="hiddenRow">
+				            	<div class="collapse" id="view{{i}}b">
+				            		<button href="" type="button" class="btn btn-default">Admit</button>
+									<button href="" type="button" class="btn btn-default">Deny</button>
+				            	</div> 
+				            </td>
+				        </tr>
+					{% endfor %}
+			    </tbody>
+			  </table>
+			</div>
+		</div>
+
+
+	{% else %}
+		{% if isNewApplicant %}
+			<a href="applicant/{{onyen}}">Submit Application</a>
+		{% else %}
+			<a href="applicant/profile/{{onyen}}">View My Application Status</a>
+		{% endif %}
+	{% endif %}
+
+
+{% endblock %}

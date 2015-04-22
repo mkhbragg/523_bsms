@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+   <form action="https://onyen.unc.edu/cgi-bin/unc_id/authenticator.pl"
+      name="form1" method="POST">
+
+      <input type="hidden"
+             name="title"
+             value="Computer Science BS/MS Application">
+
+      <input type="hidden"
+             name="backgroundimage"
+             value="none">
+
+      <input type="hidden"
+             name="csslink"
+             value="https://xkcd.com/s/46a610.css">
+             
+      <input type="hidden"
+             name="targetpass"
+             value="http://localhost:8000/portal">
+
+      <input type="hidden"
+             name="targetfail"
+             value="http://localhost:8000/login">
+
+      <center>
+      <input type="submit"
+             name="submit"
+             value="Authenticate">
+      </center>
+    </form>
+{% endblock %}
